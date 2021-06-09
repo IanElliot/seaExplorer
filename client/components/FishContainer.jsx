@@ -1,5 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import FishCard from "./FishCard.jsx";
 
 class FishContainer extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class FishContainer extends Component {
       .then((jsonRes) => {
         this.setState({
           items: jsonRes,
+          isLoaded: true,
         });
       });
   }
@@ -31,15 +33,10 @@ class FishContainer extends Component {
     console.log(this.state.items);
     return (
       <div>
-        <div></div>
         <h1 id="header">Sea Explorer</h1>
-        <div id="fishBox">
-          <div></div>
-          <ul>
-            <li>Species Name:</li>
-            <li>Species:</li>
-          </ul>
-        </div>
+        {this.state.items.map((fish, i) => (
+          <FishCard key={i} speciesName={fish.speciesName} />
+        ))}
       </div>
     );
   }
