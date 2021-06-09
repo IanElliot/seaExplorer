@@ -1,3 +1,21 @@
 body {
   background: cadetblue;
 }
+
+li {
+  list-style-type: none;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  font-size: 3rem;
+  text-shadow: -2px 4px 11px rgba(0, 0, 0, 0.6);
+}
+
+#fishBox {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}

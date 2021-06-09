@@ -10,14 +10,13 @@ module.exports = {
   devServer: {
     publicPath: '/build',
     proxy: {
-      '/api/**': {
+      '/': {
         target: 'http://localhost:3000/',
       },
     },
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js||jsx)$/,
         use: {
           loader: 'babel-loader',
