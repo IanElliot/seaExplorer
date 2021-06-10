@@ -4,6 +4,7 @@ const path = require('path');
 const fetch = require('node-fetch');
 const fishRoute = require("./routes/fishRoute")
 
+app.use(express.json())
 
 app.use("/fish", fishRoute)
 

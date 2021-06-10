@@ -41,7 +41,16 @@ class FishCard extends Component {
             }}
           />
         ) : null}
-        <button id="favoriteButton" type="button">
+        <button
+          id="favoriteButton"
+          type="button"
+          onClick={() => {
+            this.props.handleFavoriteClick(
+              this.props.keyId,
+              this.props.speciesName
+            );
+          }}
+        >
           Favorite
         </button>
       </div>

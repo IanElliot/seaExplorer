@@ -25,6 +25,23 @@ fishController.getFishes = function (req, res, next) {
   // return next();
 }
 
+fishController.postFishes = function (req, res, next) {
+  console.log('testing')
+  let result;
+  console.log(req.body);
+
+  /*  fetch('https://www.fishwatch.gov/api/species')
+     .then(res => res.json())
+     .then(json => {
+       req.body = json;
+       console.log(req.body)
+       return next();
+     })
+     .catch(e => {
+       return next(e);
+     }) */
+}
+
 
 
 

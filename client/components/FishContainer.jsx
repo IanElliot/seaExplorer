@@ -10,10 +10,12 @@ class FishContainer extends Component {
       isLoaded: false,
       show: false,
       id: null,
+      favorite: {},
     };
     /*     this.showModal = this.showModal.bind(this); */
     this.handleClick = this.handleClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
+    // this.handleFavorite = this.handleFavoriteClick.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,31 @@ class FishContainer extends Component {
         });
       });
   }
+
+  handleFavorite = (id, species) => {
+    let method = "POST";
+    if (!this.state.favorite[id]) {
+      this.setState({
+        favorite: { [id]: species },
+      });
+    }
+    // console.log(this.state.favorite);
+    fetch("/fish/postFish", {
+      method: method,
+      body: JSON.stringify(this.state.favorite),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((jsonRes) => {
+        console.log(jsonRes);
+        return jsonRes;
+      });
+  };
 
   handleClick = (id) => {
     this.setState({ show: true, id: id });
@@ -65,12 +92,11 @@ class FishContainer extends Component {
             fishingRate={fish["Fishing Rate"]}
             stateofFish={fish["Quote"]}
             show={this.state.show}
-            handleClick={() => {
-              this.handleClick(i);
-            }}
+            handleClick={this.handleClick}
             handleCloseClick={(id) => {
               this.handleCloseClick(id);
             }}
+            handleFavoriteClick={this.handleFavorite}
           />
         ))}
       </div>

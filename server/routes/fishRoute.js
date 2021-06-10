@@ -7,5 +7,13 @@ router.get("/getFish", fishRoute.getFishes, (req, res) => {
   res.status(200).json(res.locals.result)
 })
 
+router.post("/postFish", fishRoute.postFishes, (req, res) => {
+  // res.send('test')
+  console.log(req.body)
+  res.status(200).json(res.locals.result)
+})
+
+
+
 
 module.exports = router;
