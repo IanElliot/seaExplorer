@@ -8,7 +8,10 @@ class FishContainer extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      show: false,
     };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
@@ -29,13 +32,32 @@ class FishContainer extends Component {
       });
   }
 
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     console.log(this.state.items);
+
     return (
       <div>
         <h1 id="header">Sea Explorer</h1>
         {this.state.items.map((fish, i) => (
-          <FishCard key={i} speciesName={fish.speciesName} />
+          <FishCard
+            key={i}
+            speciesName={fish["Species Name"]}
+            speciesPicture={fish["Species Illustration Photo"]}
+            fishingRegion={fish["NOAA Fisheries Region"]}
+            fishingRate={fish["Fishing Rate"]}
+            stateofFish={fish["Quote"]}
+            showModal={this.showModal}
+            hideModal={this.hideModal}
+            show={this.show}
+          />
         ))}
       </div>
     );

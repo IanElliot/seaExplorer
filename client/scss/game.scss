@@ -1,25 +1,66 @@
 body {
   background: cadetblue;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
 li {
   list-style-type: none;
 }
 
+img {
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#conditionButton {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  margin-left: 2.1rem;
+  margin-right: 30rem;
+}
+
+#favoriteButton {
+  background-color: rgb(255, 202, 87); /* Green */
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  margin-left: 2.1rem;
+  margin-right: 30rem;
+}
+
 #header {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
   font-size: 3rem;
   text-shadow: -2px 4px 11px rgba(0, 0, 0, 0.6);
+  font-family: "Lexend Deca", sans-serif;
 }
 
 #fishContainer {
+  padding-top: 5rem;
   display: flex;
-  justify-content: center;
   font-size: 1.5rem;
+  grid-auto-rows: auto;
 }
 
 .fishCard {
   border: solid 1px black;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  grid-auto-rows: auto;
+  font-size: large;
+}
+
+.checked {
+  color: orange;
 }

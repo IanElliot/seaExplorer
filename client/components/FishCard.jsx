@@ -6,14 +6,30 @@ class FishCard extends Component {
     super(props);
   }
 
+  handleClick() {
+    console.log("Click happened");
+  }
+
   render() {
+    console.log(this.props.speciesPicture.src);
+    let pictureExists = this.props.speciesPicture;
+
     return (
-        <div className = "fishCard" id= {this.props.key}>
-          <ul>
-            <li>Species Name: {this.props.speciesName}</li>
-            <li>Species:</li>
-          </ul>
-        </div>
+      <div className="fishCard">
+        <ul>
+          <img src={this.props.speciesPicture.src} alt="" />
+          <li>Species Name: {this.props.speciesName}</li>
+          <li>Fishing Region: {this.props.fishingRegion}</li>
+          <li>Fishing Rate: {this.props.fishingRate}</li>
+        </ul>
+        <br></br>
+        <button id="conditionButton" type="button" onClick={this.showModal}>
+          Current Condition
+        </button>
+        <button id="favoriteButton" type="button" onClick={this.handleClick}>
+          Favorite
+        </button>
+      </div>
     );
   }
 }
