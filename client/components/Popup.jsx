@@ -11,8 +11,14 @@ class Popup extends Component {
       <div className="popup">
         <div className="popup-inner">
           <p>Hey!</p>
-          {this.props}
-          <button onClick={props.closeMe}>Close</button>
+          <div>{this.props.stateofFish}</div>
+          <button
+            onClick={() => {
+              this.props.handleCloseClick();
+            }}
+          >
+            Close
+          </button>
         </div>
       </div>
     );

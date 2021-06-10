@@ -9,9 +9,11 @@ class FishContainer extends Component {
       items: [],
       isLoaded: false,
       show: false,
+      id: null,
     };
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    /*     this.showModal = this.showModal.bind(this); */
+    this.handleClick = this.handleClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
   }
 
   componentDidMount() {
@@ -32,31 +34,43 @@ class FishContainer extends Component {
       });
   }
 
-  showModal = () => {
-    this.setState({ show: true });
+  handleClick = (id) => {
+    this.setState({ show: true, id: id });
+    console.log(this.state.show);
+    console.log(this.state.id);
   };
 
-  hideModal = () => {
+  handleCloseClick = () => {
     this.setState({ show: false });
+    console.log(this.state.show);
+    console.log(this.state.id);
   };
+
+  /*   showModal = () => {
+    this.setState({ show: true });
+    console.log("clicked");
+  }; */
 
   render() {
-    console.log(this.state.items);
-
     return (
       <div>
         <h1 id="header">Sea Explorer</h1>
         {this.state.items.map((fish, i) => (
           <FishCard
             key={i}
+            keyId={i}
             speciesName={fish["Species Name"]}
             speciesPicture={fish["Species Illustration Photo"]}
             fishingRegion={fish["NOAA Fisheries Region"]}
             fishingRate={fish["Fishing Rate"]}
             stateofFish={fish["Quote"]}
-            showModal={this.showModal}
-            hideModal={this.hideModal}
-            show={this.show}
+            show={this.state.show}
+            handleClick={() => {
+              this.handleClick(i);
+            }}
+            handleCloseClick={(id) => {
+              this.handleCloseClick(id);
+            }}
           />
         ))}
       </div>
