@@ -58,6 +58,9 @@ class FishContainer extends Component {
       .then((jsonRes) => {
         console.log(jsonRes);
         return jsonRes;
+      })
+      .catch((error) => {
+        console.error(error)
       });
   };
 
