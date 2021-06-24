@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 })
 
+/* app.get('/Favorites', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+}) */
+
 // error handlers
 
 app.use('*', (req, res) => {

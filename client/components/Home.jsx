@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import FishCard from "./FishCard.jsx";
 
-class FishContainer extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -107,4 +107,4 @@ class FishContainer extends Component {
   }
 }
 
-export default FishContainer;
+export default Home;
