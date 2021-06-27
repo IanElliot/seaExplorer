@@ -60,7 +60,7 @@ class Home extends Component {
         return jsonRes;
       })
       .catch((error) => {
-        console.error(error)
+        console.error(error);
       });
   };
 
@@ -84,24 +84,28 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1 id="header">Sea Explorer</h1>
-        {this.state.items.map((fish, i) => (
-          <FishCard
-            key={i}
-            keyId={i}
-            speciesName={fish["Species Name"]}
-            speciesPicture={fish["Species Illustration Photo"]}
-            fishingRegion={fish["NOAA Fisheries Region"]}
-            fishingRate={fish["Fishing Rate"]}
-            stateofFish={fish["Quote"]}
-            show={this.state.show}
-            handleClick={this.handleClick}
-            handleCloseClick={(id) => {
-              this.handleCloseClick(id);
-            }}
-            handleFavoriteClick={this.handleFavorite}
-          />
-        ))}
+        <h1 id="header" className="text-focus-in">
+          Sea Explorer
+        </h1>
+        <div id="fishContainer">
+          {this.state.items.map((fish, i) => (
+            <FishCard
+              key={i}
+              keyId={i}
+              speciesName={fish["Species Name"]}
+              speciesPicture={fish["Species Illustration Photo"]}
+              fishingRegion={fish["NOAA Fisheries Region"]}
+              fishingRate={fish["Fishing Rate"]}
+              stateofFish={fish["Quote"]}
+              show={this.state.show}
+              handleClick={this.handleClick}
+              handleCloseClick={(id) => {
+                this.handleCloseClick(id);
+              }}
+              handleFavoriteClick={this.handleFavorite}
+            />
+          ))}
+        </div>
       </div>
     );
   }

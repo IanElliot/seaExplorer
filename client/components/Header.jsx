@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 class Header extends Component {
-  
-
   render() {
     return (
-      <div id="header">
+      <div className="text-focus-in" id="header">
         <h1>Sea Explorer</h1>
       </div>
     );
